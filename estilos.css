@@ -170,8 +170,9 @@ html { scroll-padding-top: 108px; }
   position: relative;
   isolation: isolate;
   display: grid;
+  grid-template-columns: 46% minmax(0, 1fr);
   align-items: center;
-  min-height: clamp(520px, 49vw, 680px);
+  min-height: min(640px, calc(100svh - 92px));
   color: #fff;
   background: linear-gradient(122deg, #315e87, #1b3852 78%);
 }
@@ -181,38 +182,61 @@ html { scroll-padding-top: 108px; }
   position: absolute;
   z-index: -1;
   inset: 0 auto 0 0;
-  width: min(62%, 1100px);
+  width: min(59%, 1100px);
   background: url("galeria/escalador-portada.webp") center 54% / cover no-repeat;
   opacity: .88;
-  mask-image: linear-gradient(to right, #000 53%, transparent 100%);
+  mask-image: linear-gradient(to right, #000 47%, transparent 96%);
 }
 
-.hero .wrap {
-  padding: 52px 0 52px 52%;
+.hero .hero-copy {
+  grid-column: 2;
+  width: min(100%, 660px);
+  padding: clamp(20px, 5svh, 48px) clamp(20px, 5vw, 54px) clamp(20px, 5svh, 48px) 0;
 }
+
+.hero .eyebrow { margin-bottom: 12px; }
 
 .hero h1 {
-  font-size: clamp(3.25rem, 7.7vw, 7.5rem);
+  font-size: clamp(2.65rem, min(5.9vw, 12svh), 5.75rem);
+  margin-bottom: 14px;
 }
 
-@media (max-width: 720px) {
+.hero p:not(.eyebrow) {
+  max-width: 46ch;
+  font-size: clamp(1rem, 1.45vw, 1.18rem);
+  margin-bottom: 16px;
+}
+
+@media (max-width: 900px) {
+  .hero { min-height: min(570px, calc(100svh - 128px)); }
+}
+
+@media (max-width: 640px) and (min-height: 500px) {
   .hero {
-    min-height: 0;
+    grid-template-columns: minmax(0, 1fr);
     align-items: end;
+    min-height: min(600px, calc(100svh - 150px));
   }
 
   .hero::before {
     inset: 0 0 auto;
     width: 100%;
-    height: clamp(310px, 100vw, 470px);
-    mask-image: linear-gradient(to bottom, #000 77%, transparent 100%);
+    height: clamp(130px, calc(75svh - 260px), 340px);
+    mask-image: linear-gradient(to bottom, #000 67%, transparent 100%);
   }
 
-  .hero .wrap {
-    padding: clamp(270px, 87vw, 410px) 0 36px;
+  .hero .hero-copy {
+    grid-column: 1;
+    padding: clamp(88px, calc(75svh - 307px), 305px) 5% 16px;
   }
 
   .hero h1 {
-    font-size: clamp(3rem, 10vw, 5rem);
+    font-size: clamp(2rem, min(9vw, 7svh), 3.65rem);
   }
+}
+
+@media (max-height: 470px) {
+  .hero h1 { font-size: clamp(1.65rem, 7.5svh, 3.25rem); }
+  .hero .hero-copy { padding-block: 10px; }
+  .hero .eyebrow, .hero h1, .hero p:not(.eyebrow) { margin-bottom: 7px; }
 }
