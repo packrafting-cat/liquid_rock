@@ -332,6 +332,13 @@ html { scroll-padding-top: 108px; }
   aspect-ratio: auto;
   border-radius: 0;
 }
-.taller-slide { width: min(100%, 480px); margin: 24px 0; }
-.taller-slide img { display: block; width: 100%; height: auto; border-radius: 6px; }
-.taller-slide figcaption { margin-top: 8px; font-size: .875rem; }
+.taller-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.taller-gallery img { display: block; width: 100%; height: auto; border-radius: 6px; }
+@media (max-width: 480px) {
+  .taller-gallery { grid-template-columns: minmax(0, 1fr); }
+}
