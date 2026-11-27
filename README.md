@@ -26,7 +26,7 @@ Podemos empezar con **una sola página** y ampliarla conforme tengas más salida
 - Un botón visible de **«Consultar disponibilidad»** o **«Contactar conmigo»**, conectado al correo o WhatsApp que quieras atender.
 - Una presentación breve del guía con la experiencia y las titulaciones que quieras mostrar.
 
-Ya tienes una maqueta en GitHub Pages para ver la idea. Su formulario prepara un borrador de consulta. Para el lanzamiento, conectaremos el botón al canal que elijas y probaremos desde el móvil que te llega la consulta. [Ver la maqueta de Roca Abierta](https://packrafting-cat.github.io/roca_abierta/)
+Ya tienes una maqueta en GitHub Pages para ver la idea. Su formulario prepara un borrador de consulta. Para el lanzamiento, conectaremos el botón al canal que elijas y probaremos desde el móvil que te llega la consulta. [Ver la maqueta de Liquid Rock](https://packrafting-cat.github.io/liquid_rock/)
 
 Podemos mantener el **alojamiento de la web estática a 0 €** con un plan gratuito como Cloudflare Pages, dentro de sus límites. El dominio propio y cualquier servicio adicional se presupuestan aparte. GitHub Pages sirve para compartir esta maqueta y tiene restricciones para alojar negocios en línea. [Cloudflare Pages](https://developers.cloudflare.com/pages/functions/pricing/) · [Límites de GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/github-pages-limits)
 
