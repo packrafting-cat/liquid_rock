@@ -25,3 +25,7 @@ section{padding:86px 0}.cards{display:grid;grid-template-columns:repeat(3,1fr);b
 .kayak-band img{width:100%;height:clamp(200px,36vw,340px);object-fit:cover;object-position:center 38%}
 .profile img{border-radius:6px;aspect-ratio:410/455;object-fit:cover}
 #contacto h2{font-size:clamp(2.25rem,5vw,4rem)}
+
+.brand{display:block;padding:3px 8px;border:0;border-radius:5px;background:#f5f8fa;flex:none}
+.brand img{display:block;width:90px;height:auto}
+@media(max-width:680px){.brand img{width:73px}}
