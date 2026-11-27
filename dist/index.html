@@ -1,43 +1,65 @@
 <!doctype html>
 <html lang="es">
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Explora opciones de guiado en escalada en roca y prepara tu próxima salida.">
-<title>Roca Abierta · Guiado en escalada</title>
-<style>
-:root{color-scheme:light;--ink:#202822;--paper:#f6f3ea;--lime:#ddf18e;--edge:#c9cec0}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.55 system-ui,sans-serif}a{color:inherit}button,select,input,textarea{font:inherit}.wrap{width:min(1160px,90%);margin:auto}
-header{background:#16201a;color:#fff}nav{min-height:76px;display:flex;gap:24px;align-items:center;justify-content:space-between}nav a{text-decoration:none}.brand{font-weight:900;letter-spacing:.08em}.navlinks{display:flex;gap:24px}
-.hero{min-height:630px;display:grid;align-items:end;color:white;background:linear-gradient(90deg,#111b15eb 0%,#111b1577 65%,#111b1533),url(escalada.jpg) center 48%/cover,#29372d}.hero .wrap{margin-bottom:70px}.eyebrow{font-size:.77rem;letter-spacing:.18em;text-transform:uppercase;font-weight:800}.hero .eyebrow{color:var(--lime)}h1,h2,h3,p{margin-top:0}h1,h2{line-height:.99;letter-spacing:-.06em}h1{font-size:clamp(4rem,11vw,9rem);margin-bottom:24px}h2{font-size:clamp(2.65rem,6vw,5rem);margin-bottom:28px}h3{font-size:1.5rem;letter-spacing:-.035em;margin-bottom:10px}.hero p:not(.eyebrow){max-width:420px;font-size:1.18rem}.button{display:inline-block;background:var(--lime);color:#1b271a;border:1px solid #273220;padding:12px 20px;text-decoration:none;font-weight:750;cursor:pointer}.button:hover{background:#edfac2}
-section{padding:86px 0}.cards{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--edge);gap:24px}.cards article{padding:24px 0 0;display:flex;flex-direction:column;align-items:flex-start}.cards p{flex:1}.cards a{font-weight:750;text-underline-offset:.25em}.consult{background:#e3e9d9}.split{display:grid;grid-template-columns:1fr 1fr;gap:48px}.split p{max-width:34ch}form{display:grid;gap:14px}label{display:grid;gap:5px;font-weight:650}select,input,textarea{width:100%;padding:10px;background:#fffdf5;border:1px solid #737c70;color:var(--ink);border-radius:0}textarea{resize:vertical}form .button{justify-self:start}#resultado{padding:14px;border-left:3px solid #586b44;white-space:pre-wrap;overflow-wrap:anywhere}footer{padding:26px 0;background:#16201a;color:white}
-@media(max-width:680px){.navlinks{gap:12px;font-size:.88rem}nav{gap:12px}.hero{min-height:530px}.hero .wrap{margin-bottom:50px}section{padding:58px 0}.cards,.split{grid-template-columns:1fr;gap:24px}.cards article+article{border-top:1px solid var(--edge)}}
-</style>
-<header><nav class="wrap" aria-label="Navegación principal"><a class="brand" href="#inicio">ROCA ABIERTA</a><div class="navlinks"><a href="#salidas">Salidas</a><a href="#consulta">Consulta</a></div></nav></header>
-<main id="inicio">
-<div class="hero"><div class="wrap"><p class="eyebrow">Guiado en escalada en roca</p><h1>Roca<br>Abierta.</h1><p>Tu primera vía en roca, una jornada de deportiva o el paso a las vías de varios largos.</p><a class="button" href="#salidas">Explorar las salidas ↓</a></div></div>
-<section id="salidas"><div class="wrap"><h2>Encuentra tu salida</h2><div class="cards">
-<article><h3>Iniciación en roca</h3><p>Para quienes se acercan a la escalada por primera vez o vienen del rocódromo y quieren probar la roca.</p><a href="#consulta" data-salida="Iniciación en roca">Consultar iniciación →</a></article>
-<article><h3>Escalada deportiva</h3><p>Para quienes ya han escalado y buscan una jornada de vías de un largo adaptada a su experiencia.</p><a href="#consulta" data-salida="Escalada deportiva">Consultar deportiva →</a></article>
-<article><h3>Vías de varios largos</h3><p>Para escaladores con experiencia que quieren explorar itinerarios de mayor recorrido.</p><a href="#consulta" data-salida="Vías de varios largos">Consultar varios largos →</a></article>
-</div></div></section>
-<section class="consult" id="consulta"><div class="wrap split"><div><h2>Prepara tu consulta</h2><p>Elige una modalidad y cuenta qué experiencia tiene el grupo. El formulario genera un borrador que puedes copiar.</p></div>
-<form id="formulario"><label>Modalidad<select id="modalidad" required><option value="">Elige una modalidad</option><option>Iniciación en roca</option><option>Escalada deportiva</option><option>Vías de varios largos</option></select></label><label>Personas<input type="number" id="personas" min="1" step="1" value="1" required></label><label>Experiencia, zona o fechas<textarea id="detalles" rows="4"></textarea></label><button class="button">Generar borrador</button><div id="resultado" role="status" hidden></div><button type="button" class="button" id="copiar" hidden>Copiar borrador</button></form>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Maqueta de Roca Abierta: escalada de varios largos en Riglos y Benasque, ferratas y escalada deportiva.">
+  <meta name="robots" content="noindex">
+  <title>Escalada y vías ferratas · Roca Abierta</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+<header><nav class="wrap" aria-label="Navegación principal">
+  <a class="brand" href="./">ROCA ABIERTA</a>
+  <div class="navlinks">
+    <a href="#actividades">Actividades</a><a href="#zonas">Zonas</a><a href="#sobre-mi">Sobre mí</a><a href="#consulta">Consulta</a>
+  </div>
+</nav></header>
+<main>
+<div class="hero"><div class="wrap"><p class="eyebrow">Escalada y vías ferratas</p><h1>Roca<br>Abierta.</h1><p>Vías de largos en Riglos y el valle de Benasque, escalada deportiva y propuestas para descubrir la montaña.</p><a class="button" href="#actividades">Explorar actividades ↓</a></div></div>
+<section id="actividades"><div class="wrap">
+  <h2>Actividades</h2><div class="cards"><article><h3>Vías de largos</h3><p>Escalada en pared en Riglos y en el valle de Benasque.</p><a href="vias-de-largos/">Ver ficha de Vías de largos →</a></article><article><h3>Vías ferratas</h3><p>Recorridos equipados para descubrir la montaña desde otra perspectiva.</p><a href="vias-ferratas/">Ver ficha de Vías ferratas →</a></article><article><h3>Escalada deportiva</h3><p>Jornadas de escalada en roca en vías de un largo.</p><a href="escalada-deportiva/">Ver ficha de Escalada deportiva →</a></article><article><h3>Cursos</h3><p>Propuesta en estudio para trabajar objetivos concretos en roca.</p><a href="cursos/">Ver ficha de Cursos →</a></article></div>
 </div></section>
-</main><footer><div class="wrap">Roca Abierta · Guiado en escalada</div></footer>
+<section id="zonas" class="zonas"><div class="wrap">
+  <h2>Dónde escalar</h2><p class="section-intro">Dos zonas para empezar a imaginar una jornada de varios largos.</p><div class="cards"><article><h3>Riglos</h3><p>Escalada de varios largos en los Mallos de Riglos.</p><a href="riglos/">Ver ficha de Riglos →</a></article><article><h3>Valle de Benasque</h3><p>Escalada de varios largos en el valle de Benasque.</p><a href="valle-de-benasque/">Ver ficha de Valle de Benasque →</a></article></div>
+</div></section>
+<section id="sobre-mi"><div class="wrap profile">
+  <figure><img src="avatar.jpg" width="320" height="320" alt="" loading="lazy"><figcaption>Retrato de ejemplo</figcaption></figure>
+  <div><h2>Sobre mí</h2><p><small>Presentación provisional</small></p>
+  <p>Me gusta compartir la montaña y el río. También doy clases de aguas bravas, y con Roca Abierta quiero reunir mis propuestas en roca: vías de largos, escalada deportiva y ferratas.</p>
+  <p>Quiero que podamos hablar antes de salir, conocer tu experiencia y elegir una actividad que tenga sentido para ti y tu grupo.</p></div>
+</div></section>
+<section id="consulta" class="consult"><div class="wrap split">
+  <div><h2>Prepara tu consulta</h2><p>Cuéntame qué actividad te interesa y qué experiencia tiene el grupo. En esta maqueta puedes generar y copiar un borrador de consulta.</p></div>
+  <form id="formulario">
+    <label>Actividad<select id="modalidad" required><option value="">Elige una actividad</option><option>Vías de largos</option><option>Vías ferratas</option><option>Escalada deportiva</option><option>Cursos</option></select></label>
+    <label>Personas<input type="number" id="personas" min="1" step="1" value="1" required></label>
+    <label>Experiencia, zona o fechas<textarea id="detalles" rows="4"></textarea></label>
+    <button class="button">Generar borrador</button><div id="resultado" role="status" hidden></div><button type="button" class="button" id="copiar" hidden>Copiar borrador</button>
+  </form>
+</div></section>
+</main>
+<footer><div class="wrap">Roca Abierta · Maqueta del proyecto</div></footer>
 <script>
 const modalidad = document.querySelector('#modalidad');
 const resultado = document.querySelector('#resultado');
 const copiar = document.querySelector('#copiar');
 
-document.querySelectorAll('[data-salida]').forEach(enlace => {
-  enlace.addEventListener('click', () => { modalidad.value = enlace.dataset.salida; });
-});
+const consulta = new URLSearchParams(location.search);
+const actividad = consulta.get('actividad');
+const zona = consulta.get('zona');
+if (Array.from(modalidad.options).some(opcion => opcion.value === actividad)) {
+  modalidad.value = actividad;
+}
+if (zona === 'Riglos' || zona === 'Valle de Benasque') {
+  document.querySelector('#detalles').value = 'Zona: ' + zona;
+}
 
 document.querySelector('#formulario').addEventListener('submit', evento => {
   evento.preventDefault();
   const personas = document.querySelector('#personas').value;
   const detalles = document.querySelector('#detalles').value.trim();
-  resultado.textContent = ['Hola, me interesa una salida de escalada.', 'Modalidad: ' + modalidad.value, 'Personas: ' + personas, detalles].filter(Boolean).join('\n');
+  resultado.textContent = ['Hola, me interesa una actividad de Roca Abierta.', 'Actividad: ' + modalidad.value, 'Personas: ' + personas, detalles].filter(Boolean).join('\n');
   resultado.hidden = false;
   copiar.hidden = !navigator.clipboard;
   copiar.textContent = 'Copiar borrador';
@@ -52,4 +74,5 @@ copiar.addEventListener('click', async () => {
   }
 });
 </script>
+</body>
 </html>
