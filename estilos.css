@@ -80,3 +80,22 @@ html { scroll-padding-top: 108px; }
   }
   .header-contact { justify-self: end; }
 }
+
+.whatsapp-float {
+  position: fixed;
+  right: calc(18px + env(safe-area-inset-right, 0px));
+  bottom: calc(18px + env(safe-area-inset-bottom, 0px));
+  z-index: 11;
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #087947;
+  color: #fff;
+  box-shadow: 0 4px 14px #10273d50;
+}
+
+.whatsapp-float:hover { background: #066238; }
+.whatsapp-float:focus-visible { outline: 3px solid #ffd000; outline-offset: 3px; }
+footer .wrap { padding-right: 68px; }
