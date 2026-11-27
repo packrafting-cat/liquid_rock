@@ -26,7 +26,7 @@ Podemos empezar con **una sola página** y ampliarla conforme tengas más salida
 - Un botón visible de **«Consultar disponibilidad»** o **«Contactar conmigo»**, conectado al correo o WhatsApp que quieras atender.
 - Una presentación breve del guía con la experiencia y las titulaciones que quieras mostrar.
 
-Ya tienes una maqueta en GitHub Pages para ver la idea. Su formulario prepara un borrador de consulta. Para el lanzamiento, conectaremos el botón al canal que elijas y probaremos desde el móvil que te llega la consulta. [Ver la maqueta de Liquid Rock](https://packrafting-cat.github.io/liquid_rock/)
+Ya tienes una maqueta en GitHub Pages para ver la idea. El formulario está preparado para enviar consultas por correo con Web3Forms. Mientras se activa, las consultas se pueden enviar por WhatsApp. [Ver la maqueta de Liquid Rock](https://packrafting-cat.github.io/liquid_rock/)
 
 Podemos mantener el **alojamiento de la web estática a 0 €** con un plan gratuito como Cloudflare Pages, dentro de sus límites. El dominio propio y cualquier servicio adicional se presupuestan aparte. GitHub Pages sirve para compartir esta maqueta y tiene restricciones para alojar negocios en línea. [Cloudflare Pages](https://developers.cloudflare.com/pages/functions/pricing/) · [Límites de GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/github-pages-limits)
 
@@ -70,3 +70,25 @@ Los precios son referencias de proveedor. Antes de contratar, revisaremos la mon
 4. Una foto principal y una breve presentación tuya.
 
 Con eso podemos preparar la primera versión y tener un enlace que compartir mientras damos de alta el resto.
+
+
+## Formulario de contacto y activación
+
+La maqueta ya incluye el formulario de **Liquid Rock** con nombre, correo de respuesta, actividad y mensaje. GitHub Pages sirve la web estática y Web3Forms recibe los datos y los reenvía al correo de José. El botón **Enviar consulta** queda desactivado hasta incorporar la clave pública.
+
+### Qué falta y cómo activarlo
+
+1. José elige el correo donde quiere recibir las consultas y lo verifica en [Web3Forms](https://web3forms.com/). El servicio le facilita una *Access Key* pública para ese formulario. La dirección receptora se configura en Web3Forms.
+2. En la rama `main`, abre `dist/index.html` y pega la clave en el atributo `value` del campo `name="access_key"`. El JavaScript de `dist/contacto.js` habilita el envío cuando el campo tiene valor. Usa solo la clave pública del formulario.
+3. Antes de activar el envío real, completa el aviso de privacidad con los datos del titular y el canal para ejercer derechos. La página ya indica que Web3Forms procesará las consultas y las remitirá a Liquid Rock.
+4. Publica el contenido de `dist/` en la raíz de la rama `gh-pages`, que es el origen de GitHub Pages en este repositorio.
+5. Envía una consulta de prueba desde la URL publicada. Comprueba el mensaje de confirmación, que José recibe el correo y que al responder se usa la dirección introducida en el formulario. Si no llega, revisa también la carpeta de correo no deseado.
+
+El plan gratuito de Web3Forms incluye **250 envíos al mes**, filtrado de spam y la opción de añadir hCaptcha si hace falta. [Precios de Web3Forms](https://web3forms.com/pricing) · [Guía de instalación](https://docs.web3forms.com/getting-started/installation)
+
+### Alternativas
+
+| Servicio | Plan gratuito | Activación |
+| --- | --- | --- |
+| Formspree | 50 envíos al mes, pensado para pruebas y desarrollo. | Crear un formulario, asociar el correo y usar la URL que facilita el servicio. [Planes](https://formspree.io/plans) |
+| FormSubmit | Envío gratuito a correo. | Activar el formulario desde el correo receptor y usar el identificador que permite ocultar la dirección del código. [Documentación](https://formsubmit.co/documentation) |
