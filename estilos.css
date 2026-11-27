@@ -316,3 +316,22 @@ html { scroll-padding-top: 108px; }
 .blog-list p { margin: 3px 0 0; }
 .blog-back { display: inline-block; padding-block: 8px; margin-bottom: 12px; }
 .detail article h1 { font-size: clamp(2.15rem, 5.5vw, 4rem); line-height: 1.05; }
+
+.profile-portrait {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 359 / 492;
+  border-radius: 6px;
+}
+.profile .profile-portrait img {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 313.65%;
+  height: auto;
+  aspect-ratio: auto;
+  border-radius: 0;
+}
+.taller-slide { width: min(100%, 480px); margin: 24px 0; }
+.taller-slide img { display: block; width: 100%; height: auto; border-radius: 6px; }
+.taller-slide figcaption { margin-top: 8px; font-size: .875rem; }
