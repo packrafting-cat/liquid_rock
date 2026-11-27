@@ -240,3 +240,79 @@ html { scroll-padding-top: 108px; }
   .hero .hero-copy { padding-block: 10px; }
   .hero .eyebrow, .hero h1, .hero p:not(.eyebrow) { margin-bottom: 7px; }
 }
+
+.site-header .nav-toggle { display: none; }
+
+@media (max-width: 680px) {
+  html:has(.nav-toggle:not([hidden])) { scroll-padding-top: 82px; }
+
+  .site-header nav:has(.nav-toggle:not([hidden])) {
+    min-height: 68px;
+    grid-template-columns: auto auto minmax(0, 1fr);
+    gap: 8px;
+    padding-block: 6px;
+  }
+
+  .site-header .nav-toggle:not([hidden]) {
+    display: inline-flex;
+    min-height: 44px;
+    align-items: center;
+    padding: 0 9px;
+    border: 1px solid #7892a8;
+    border-radius: 5px;
+    color: #fff;
+    background: transparent;
+  }
+
+  .site-header .nav-toggle:focus-visible { outline-color: var(--lime); }
+
+  .site-header .nav-toggle:not([hidden]) + .navlinks {
+    position: absolute;
+    inset: 100% 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-height: calc(100svh - 82px);
+    overflow: auto;
+    gap: 0 12px;
+    padding: 8px 5%;
+    background: #182f44;
+    box-shadow: 0 6px 12px #10273d30;
+  }
+
+  .site-header .nav-toggle[aria-expanded="false"]:not([hidden]) + .navlinks { display: none; }
+
+  .site-header .navlinks a {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+  }
+
+  .header-contact { gap: 2px; }
+  .header-phone { min-width: 44px; font-size: .875rem; }
+  .gallery-grid { gap: 14px; }
+  .detail { padding-block: 44px; }
+  .detail h1 { font-size: clamp(2.25rem, 8vw, 3.5rem); }
+  #formulario .button { width: 100%; }
+  #formulario .button:disabled { cursor: default; opacity: .68; }
+
+  body:has(#formulario :is(input, select, textarea):focus) .whatsapp-float {
+    visibility: hidden;
+  }
+}
+
+@media (min-width: 360px) and (max-width: 580px) {
+  .gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .gallery-grid figcaption { font-size: .875rem; }
+}
+
+@media (max-width: 380px) {
+  .header-phone span { display: none; }
+}
+
+.blog-list { list-style: none; margin: 0 0 16px; padding: 0; }
+.blog-list li { padding-block: 10px; border-bottom: 1px solid var(--edge); }
+.blog-list a, .blog-back { font-weight: 700; text-underline-offset: .2em; }
+.blog-list a { display: inline-block; padding-block: 6px; }
+.blog-list p { margin: 3px 0 0; }
+.blog-back { display: inline-block; padding-block: 8px; margin-bottom: 12px; }
+.detail article h1 { font-size: clamp(2.15rem, 5.5vw, 4rem); line-height: 1.05; }
