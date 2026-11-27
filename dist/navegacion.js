@@ -28,3 +28,11 @@ document.addEventListener('click', evento => {
 });
 
 menu.hidden = false;
+
+const pie = document.querySelector('.site-footer');
+if ('IntersectionObserver' in window && pie) {
+  const observadorPie = new IntersectionObserver(([entrada]) => {
+    document.body.classList.toggle('pie-visible', entrada.isIntersecting);
+  });
+  observadorPie.observe(pie);
+}

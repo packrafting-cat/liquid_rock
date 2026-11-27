@@ -17,9 +17,6 @@ section{padding:86px 0}.cards{display:grid;grid-template-columns:repeat(3,1fr);b
 @media(max-width:680px){nav{flex-wrap:wrap;padding:12px 0}.navlinks{flex-wrap:wrap}.cards,.profile{grid-template-columns:1fr}.profile figure{max-width:170px}}
 
 .brand{color:#fff;border-bottom:3px solid #ffd000;padding-block:3px;white-space:nowrap}
-.kayak-band{background:#315e87;color:#fff}
-.kayak-band .split{align-items:center}
-.kayak-band img{width:100%;height:clamp(200px,36vw,340px);object-fit:cover;object-position:center 38%}
 .profile img{border-radius:6px;aspect-ratio:410/455;object-fit:cover}
 #contacto h2{font-size:clamp(2.25rem,5vw,4rem)}
 
@@ -163,7 +160,6 @@ html { scroll-padding-top: 108px; }
     padding-right: 0;
   }
   .footer-brand { grid-column: 1 / -1; }
-  .footer-find { padding-bottom: 54px; }
 }
 
 .hero {
@@ -221,13 +217,13 @@ html { scroll-padding-top: 108px; }
   .hero::before {
     inset: 0 0 auto;
     width: 100%;
-    height: clamp(130px, calc(75svh - 260px), 340px);
+    height: clamp(166px, calc(75svh - 224px), 376px);
     mask-image: linear-gradient(to bottom, #000 67%, transparent 100%);
   }
 
   .hero .hero-copy {
     grid-column: 1;
-    padding: clamp(88px, calc(75svh - 307px), 305px) 5% 16px;
+    padding: clamp(124px, calc(75svh - 271px), 341px) 5% 16px;
   }
 
   .hero h1 {
@@ -342,3 +338,83 @@ html { scroll-padding-top: 108px; }
 @media (max-width: 480px) {
   .taller-gallery { grid-template-columns: minmax(0, 1fr); }
 }
+
+.kayak-band {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  align-items: center;
+  padding: 0;
+  min-height: 340px;
+  background: linear-gradient(110deg, #315e87, #1b3852 82%);
+  color: #fff;
+}
+.kayak-band-photo {
+  position: absolute;
+  z-index: -1;
+  inset: 0 auto 0 0;
+  width: min(60%, 1050px);
+  height: 100%;
+  object-fit: cover;
+  object-position: center 58%;
+  mask-image: linear-gradient(to right, #000 54%, transparent 100%);
+}
+.kayak-band-copy {
+  width: 49%;
+  margin-left: auto;
+  padding-block: 38px;
+}
+.kayak-band-copy h2 { font-size: clamp(2.2rem, 5.5vw, 4rem); margin-bottom: 16px; }
+.kayak-band-copy p { max-width: 39ch; }
+@media (max-width: 680px) {
+  .kayak-band { display: block; }
+  .kayak-band-photo {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: clamp(220px, 70vw, 340px);
+    mask-image: linear-gradient(to bottom, #000 75%, transparent 100%);
+  }
+  .kayak-band-copy { width: 100%; padding: 8px 0 34px; }
+  .pie-visible .whatsapp-float { visibility: hidden; }
+}
+
+.visor-fotos {
+  width: min(94vw, 920px);
+  max-width: none;
+  max-height: 92dvh;
+  margin: auto;
+  padding: 10px;
+  border: 0;
+  border-radius: 8px;
+  background: #182f44;
+  color: #fff;
+}
+.visor-fotos::backdrop { background: #0d1c2bea; }
+.visor-controles {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+.visor-controles button {
+  min-width: 44px;
+  min-height: 44px;
+  padding-inline: 8px;
+  border: 1px solid #7892a8;
+  border-radius: 4px;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+.visor-controles button:focus-visible { outline-color: var(--lime); }
+.visor-imagen { overflow: auto; max-height: 70dvh; }
+.visor-imagen img {
+  display: block;
+  width: 100%;
+  max-height: 70dvh;
+  object-fit: contain;
+}
+.visor-imagen.ampliada img { width: 175%; max-height: none; }
+.visor-contador { margin: 6px 0 0; text-align: center; }
